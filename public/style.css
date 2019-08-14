@@ -1,0 +1,96 @@
+/* @import "~bootstrap/scss/bootstrap"; */
+
+body{
+    background-color: #fff;
+    /* background-image: linear-gradient(to right top, #ebc30a, #ff8627, #fa4552, #d2037a, #871d97); */
+    font-size: 25px;
+    height: 800px;
+    /* padding-left: 350px;
+    padding-right: 350px; */
+}
+.accordionExample{
+    margin: 0 30px;
+}
+.btn-primary:focus{
+    color: black;
+}
+.card{
+    text-align: center;
+}
+#accordionexample{
+padding: 50px;
+}
+#contentTbl{
+    margin-top: 180px;
+}
+
+#inputCountries{
+    width: 400px;
+    /* margin: 15px auto; */
+    padding: 5px;
+    /* display: inline-block; */
+    /* box-shadow: 3px 3px grey; */
+    border-radius: 5px;
+    font-size: 20px;
+    transition: 0.3s;
+}
+#inputCountries:hover{
+    border: 3px solid #ff8627;
+    /* box-shadow: 6px 6px black; */
+    transition: 0.3s;
+}
+#inputCountries:focus{
+    border: 3px solid #ff8627;
+    /* box-shadow: 6px 6px black; */
+    transition: 0.3s;
+}
+
+#submitBtn{
+    /* display: inline-block; */
+    color: #fff;
+    background-color: #343a40;
+    border-color: #454d55;
+    padding-bottom: 3px;
+    border-radius: 5px;
+    width: 120px;
+    transition: 0.3s;
+}
+#submitBtn:hover{
+    /* border: 3px solid #454d55; */
+    color: #ff8627;
+    transition: 0.3s;
+}
+
+#countryLbl{
+    font-size: 30px;
+    margin: 10px auto;
+    display: block;
+    text-align: center;
+    transition: 0.3s;
+}
+#inputForm{
+    
+}
+#content{
+    /* position: absolute; */
+    /* top: 0; */
+    /* left: 35%; */
+    padding-bottom: 5px;
+    text-align: center;
+}
+/* #divParent{
+    text-align: center;
+}
+#div1{
+    display: inline-block;
+    width: 100px;
+    height: 50px;
+    background-color: blue;
+}
+#div2{
+    display: inline-block;
+    width: 100px;
+    height: 50px;
+    background-color: red;
+} */
+
