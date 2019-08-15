@@ -12,8 +12,7 @@
 <body>
 <div id="content">
     <h1>Pollution App</h1>
-    <span>Select type of Pollution to see 10 most polluted cities</span>
-    <br>
+    <p>Select type of Pollution to see 10 most polluted cities</p>
     <div class="btn-group" id="selectionGroup" role="group" aria-label="Basic example">
         <button type="button" class="btn btn-primary btnColorTheme" id="CO-Btn">CO</button>
         <button type="button" class="btn btn-primary btnColorTheme" id="NO2-Btn">NO2</button>
@@ -25,19 +24,15 @@
     <form id="IpuntForm" action="">
         <input id="inputCountries" type="text" list="countries" placeholder="Country" autocomplete="off"  autofocus>
         <button id="submitBtn">Search</button>
+        <div id="submitErrMsg"></div>
         <datalist id="countries">
             <option value="Poland">
             <option value="France">
             <option value="Spain">
             <option value="Germany">
         </datalist>
-        <br>
-
     </form>
-
     <div class="accordion" id="accordionExample"> </div>
-
-
 </div>
 <footer id="footer">Felnyr 2019</footer>
 </body>

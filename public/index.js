@@ -1,4 +1,5 @@
 var country;
+var parameter;
 var measureArr = []
 var selectionGroup = document.getElementById("selectionGroup");
 const inputElement = document.getElementById("inputCountries");
@@ -6,17 +7,6 @@ const submitBtn = document.getElementById("submitBtn");
 
 // origin = "*" in request,  format = json
 function fetchWiki(){
-    // for(let i = 0; i<measureArr.length; i++){
-    //     (function(){
-    //         fetch(`https://en.wikipedia.org/w/api.php?origin=*&action=opensearch&search=${measureArr[i].city}&limit=1&namespace=0&format=json`)
-    //         .then((resp)=>{return resp.json()})
-    //         .then((json)=>{
-    //             document.getElementById('collapseOne'+ i).lastChild.innerHTML = json[2][0]
-    //             wikiArr.push(json[2][0])
-    //         })
-    //     })(i)        
-    // }   
-
     measureArr.forEach((e, i)=>{
         fetch(`https://en.wikipedia.org/w/api.php?origin=*&action=opensearch&search=${e.city}&limit=5&namespace=0&format=json`)
         .then((resp)=>{return resp.json()})
@@ -24,12 +14,9 @@ function fetchWiki(){
             document.getElementById('collapseOne'+ i).lastChild.innerHTML = json[2][0]
         })
     })
-
 }
 
-
 function fetchData(){
-    // parent.removeChild(div1)
     measureArr = [];
     selectCountryCode()
     if(country !== "error" && parameter!== undefined){
@@ -39,7 +26,6 @@ function fetchData(){
             return json.results
           })
           .then((res)=>{
-            //   console.log(res)
               res.forEach(e => {
                 var obj = {}
                 obj["city"] = e.city
@@ -50,13 +36,14 @@ function fetchData(){
               });
               measureArr = getUnique(measureArr,'city')
               measureArr.reverse().splice(10,measureArr.length-10)
-            //   console.log(measureArr)
               createDataAccordion()
               fetchWiki()
-              document.body.style.height = "140vh"
           })
+    }else{
+        alert("Please select pullutant and country")
     }
 }
+
 
 function createDataAccordion(){
     if(typeof IpuntForm.nextSibling !== "undefined"){
@@ -64,26 +51,30 @@ function createDataAccordion(){
     }
     var parent = document.createElement('div')
     var content = document.getElementById('content')
+    var div1 = document.createElement('div')
+    var div2 = document.createElement('div')
+    var div3 = document.createElement('div')
+    var div4 = document.createElement('div')
+    var h2 = document.createElement('h2')
+    var btn = document.createElement('button')
     parent.setAttribute("class", "accordion")
     parent.setAttribute("id", "accordionExample")
     content.appendChild(parent)
     for(var i = 0; i<10;i++){
-        var div1 = document.createElement('div')
-        var div2 = document.createElement('div') // move all var declarations aout of for loop (performance)
-        var div3 = document.createElement('div')
-        var div4 = document.createElement('div')
-        var h2 = document.createElement('h2')
-        var btn = document.createElement('button')
+        div1 = document.createElement('div')
+        div2 = document.createElement('div')
+        div3 = document.createElement('div')
+        div4 = document.createElement('div')
+        h2 = document.createElement('h2')
+        btn = document.createElement('button')
         div1.setAttribute("class", "card")
 
         div2.setAttribute("class", "card-header")
         div2.setAttribute("id", "headingOne" + i)
-
         div3.setAttribute("id", "collapseOne" + i)
         div3.setAttribute("class", "collapse")
         div3.setAttribute("aria-labelledby", "headingOne" + i)
         div3.setAttribute("data-parent", "#accordionExample") //parent element ID
-
         div4.setAttribute("class", "card-body")
         // div4.innerHTML = "lorem ipsum" // wiki API data
 
@@ -95,13 +86,12 @@ function createDataAccordion(){
         btn.setAttribute("aria-expanded", "false")
         btn.setAttribute("aria-controls", "collapseOne" + i)
         btn.innerHTML = measureArr[i].city.toUpperCase() + " " + parameter.toUpperCase() + ": " + measureArr[i].value + " " + measureArr[i].unit // measureArr[i]
+        
         h2.appendChild(btn)
         div2.appendChild(h2)
         div1.appendChild(div2)
-
         div3.appendChild(div4)
         div1.appendChild(div3)
-
         parent.append(div1)
     }
     
@@ -161,9 +151,18 @@ function selectCountryCode(){
      }
 }
 
+function selector(x){
+    for(var i=0; i<6; i++){
+        document.getElementById("selectionGroup").children[i].style = "#fff";
+    }
+    return document.getElementById(x).style.color = "rgb(255, 251, 0)";
+
+}
+
 selectionGroup.addEventListener("click",(e)=>{
     e.preventDefault()
-    // console.log(e.target)
+    selector(e.target.id)
+
     switch (e.target.id){
         case "CO-Btn":
             parameter = "co"
@@ -184,7 +183,6 @@ selectionGroup.addEventListener("click",(e)=>{
             parameter = "pm25"
             break;
         default:
-            parameter = "error parameter"
             console.log("something went wrong on parameter")
      }
 
