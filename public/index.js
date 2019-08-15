@@ -50,9 +50,11 @@ function fetchData(){
               });
               measureArr = getUnique(measureArr,'city')
               measureArr.reverse().splice(10,measureArr.length-10)
-              console.log(measureArr)
+            //   console.log(measureArr)
               createDataAccordion()
-              fetchWiki() 
+              fetchWiki()
+              document.body.style.height = "140vh"
+              document.body.style.backgroundSize = documen.body.get
           })
     }
 }
@@ -87,7 +89,7 @@ function createDataAccordion(){
         // div4.innerHTML = "lorem ipsum" // wiki API data
 
         h2.setAttribute("class", "mb-0")
-        btn.setAttribute("class", "btn btn-link collapsed")
+        btn.setAttribute("class", "btn btn-link btnTheme collapsed ")
         btn.setAttribute("type", "button")
         btn.setAttribute("data-toggle", "collapse")
         btn.setAttribute("data-target", "#collapseOne" + i)
@@ -162,7 +164,7 @@ function selectCountryCode(){
 
 selectionGroup.addEventListener("click",(e)=>{
     e.preventDefault()
-    console.log(e.target)
+    // console.log(e.target)
     switch (e.target.id){
         case "CO-Btn":
             parameter = "co"
@@ -192,47 +194,12 @@ selectionGroup.addEventListener("click",(e)=>{
 submitBtn.addEventListener("click", (e)=>{
         e.preventDefault()
         fetchData()
-        // setTimeout(mapAll, 1000);  // write callback to fire when async fetch has completed
+        setTimeout(mapAll, 2000);  // write callback to fire when async fetch has completed
 })
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//First version
+function mapAll(){
     
-// var countries;
-// fetch("https://api.openaq.org/v1/latest")
-//     .then(resp => {return resp.json()})
-//     .then(function(json) {
-//         // console.log(json.results);
-//         countries = json.results
-//         countries.filter((x)=>{
-//             return x.name == "Poland" || x.name == "France" || x.name == "Spain" || x.name == "Germany"
-//         })
-//       })
-//       .then(()=>{
-//           countries.forEach(e => {
-//             if(e.country === "PL"  )
-//             console.log(e.country)
-//           });
-//       })
+    // document.body.style.width = "150vw"
+    
+}

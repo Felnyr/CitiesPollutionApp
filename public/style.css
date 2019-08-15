@@ -2,51 +2,71 @@
 
 body{
     background-color: #fff;
-    /* background-image: linear-gradient(to right top, #ebc30a, #ff8627, #fa4552, #d2037a, #871d97); */
+    background-image: linear-gradient(to right top, #ebc30a, #ff8627, #fa4552, #d2037a, #871d97);
+    /* background-image: linear-gradient(to right top, #0059ff, #009cff, #00c8ff, #00e9ac, #0bff00); */
+    background-size: cover;
     font-size: 25px;
-    height: 800px;
-    /* padding-left: 350px;
-    padding-right: 350px; */
+    height: 100vh;
+    width: 100vw;
+    color: #fff;
 }
-.accordionExample{
-    margin: 0 30px;
-}
-.btn-primary:focus{
-    color: black;
-}
-.card{
-    text-align: center;
+h1{
+    margin: 0px;
 }
 #accordionexample{
-padding: 50px;
+    text-align: center;
+    /* margin: 0 auto; */
+    padding: 40px;
+    background-color: transparent;
+    margin: 20px 15px;
 }
-#contentTbl{
-    margin-top: 180px;
+
+.card{
+    font-size: 0.9rem;
+    display: block;
+    text-align: left;
+    color: #fff;
+    background-color: #343a40;
+    min-width: 70vw;
+    /* width: 50vw; */
+    margin: 0 auto;
+    /* opacity: 0.5; */
+}
+
+.card:first-child{
+    margin-top: 30px;
+}
+.btnTheme{
+    color: #fff;
+    transition: 0.3s;
+}
+.btnTheme:hover{
+    color: rgb(255, 251, 0);
+    transition: 0.3s;
+    text-decoration: none;
+}
+.btnTheme:focus{
+    color: rgb(255, 251, 0);
+    text-decoration: none;
 }
 
 #inputCountries{
     width: 400px;
-    /* margin: 15px auto; */
     padding: 5px;
-    /* display: inline-block; */
-    /* box-shadow: 3px 3px grey; */
     border-radius: 5px;
     font-size: 20px;
     transition: 0.3s;
 }
 #inputCountries:hover{
-    border: 3px solid #ff8627;
-    /* box-shadow: 6px 6px black; */
+    border: 2px solid rgb(255, 251, 0);
     transition: 0.3s;
 }
 #inputCountries:focus{
-    border: 3px solid #ff8627;
-    /* box-shadow: 6px 6px black; */
+    border: 2px solid rgb(255, 251, 0);
     transition: 0.3s;
 }
 
 #submitBtn{
-    /* display: inline-block; */
     color: #fff;
     background-color: #343a40;
     border-color: #454d55;
@@ -54,11 +74,33 @@ padding: 50px;
     border-radius: 5px;
     width: 120px;
     transition: 0.3s;
+    margin-top: 15px;
 }
 #submitBtn:hover{
-    /* border: 3px solid #454d55; */
-    color: #ff8627;
+    color: rgb(255, 251, 0);
     transition: 0.3s;
+}
+
+.btnColorTheme{
+    background-color: #343a40;
+    transition: 0.3s;
+    border:none;
+    padding: 16px 30px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    
+}
+
+.btnColorTheme:hover{
+    color: rgb(255, 251, 0);
+    transition: 0.3s;
+    background-color: #343a40;
+    border:none;
+}
+.btnColorTheme:focus{
+    color: rgb(255, 251, 0);
+    transition: 0.3s;
+    background-color: #343a40;
 }
 
 #countryLbl{
@@ -69,28 +111,48 @@ padding: 50px;
     transition: 0.3s;
 }
 #inputForm{
-    
+
 }
 #content{
-    /* position: absolute; */
-    /* top: 0; */
-    /* left: 35%; */
     padding-bottom: 5px;
     text-align: center;
 }
-/* #divParent{
-    text-align: center;
-}
-#div1{
-    display: inline-block;
-    width: 100px;
-    height: 50px;
-    background-color: blue;
-}
-#div2{
-    display: inline-block;
-    width: 100px;
-    height: 50px;
-    background-color: red;
-} */
 
+.accordionTheme{
+
+}
+
+/* @media (max-width: 700px){
+    .card{
+        width: 90vw;
+    } */
+
+@media (max-width: 500px){
+    #selectionGroup{
+        
+    }
+    .btnColorTheme{
+        padding: 3vh 3vw;
+        display: block;
+    }
+    #submitBtn{
+        width: 90vw;
+    }
+    #inputCountries{
+        width: 90vw;
+        padding: 5px;
+        border-radius: 5px;
+        font-size: 20px;
+        transition: 0.3s;
+    }
+    #accordionexample{
+        margin:0;
+    }
+
+    .card{
+        padding: 2px;
+        width: 90vw;
+        font-size: 0.9rem;
+        /* opacity: 0.5; */
+    }
+}
