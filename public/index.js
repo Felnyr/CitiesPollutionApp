@@ -54,7 +54,6 @@ function fetchData(){
               createDataAccordion()
               fetchWiki()
               document.body.style.height = "140vh"
-              document.body.style.backgroundSize = documen.body.get
           })
     }
 }

@@ -9,6 +9,7 @@ body{
     height: 100vh;
     width: 100vw;
     color: #fff;
+    position: relative;
 }
 h1{
     margin: 0px;
@@ -122,11 +123,13 @@ h1{
 
 }
 
-/* #footer{
+#footer{
+    margin-bottom: 10px;
+    font-size: 0.99rem;
     text-align: center;
     position: absolute; 
     left: 0 ; right: 0; bottom: 0; 
-} */
+}
 
 /* @media (max-width: 700px){
     .card{
