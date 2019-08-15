@@ -194,12 +194,4 @@ selectionGroup.addEventListener("click",(e)=>{
 submitBtn.addEventListener("click", (e)=>{
         e.preventDefault()
         fetchData()
-        setTimeout(mapAll, 2000);  // write callback to fire when async fetch has completed
 })
-
-
-function mapAll(){
-    
-    // document.body.style.width = "150vw"
-    
-}
