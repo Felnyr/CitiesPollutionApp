@@ -1,8 +1,6 @@
 /* @import "~bootstrap/scss/bootstrap"; */
 
 body{
-    /* background-image: linear-gradient(to right top, #ebc30a, #ff8627, #fa4552, #d2037a, #871d97); */
-    /* background-image: linear-gradient(to right top, #0059ff, #009cff, #00c8ff, #00e9ac, #0bff00); */
     background-color: #ebc30a;
     background-size: cover;
     font-size: 25px;

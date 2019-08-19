@@ -4,6 +4,14 @@ var measureArr = []
 var selectionGroup = document.getElementById("selectionGroup");
 const inputElement = document.getElementById("inputCountries");
 const submitBtn = document.getElementById("submitBtn");
+const inputForm = document.getElementById("inputForm");
+const localStorageKey = 'inputVal'
+
+function storeInput(){
+    if(inputElement.value !== undefined){
+        localStorage.setItem(localStorageKey, inputElement.value)
+    }
+}
 
 // origin = "*" in request,  format = json
 function fetchWiki(){
@@ -46,7 +54,7 @@ function fetchData(){
 
 
 function createDataAccordion(){
-    if(typeof IpuntForm.nextSibling !== "undefined"){
+    if(typeof inputForm.nextSibling !== undefined){
         document.getElementById("accordionExample").remove()
     }
     var parent = document.createElement('div')
@@ -76,7 +84,6 @@ function createDataAccordion(){
         div3.setAttribute("aria-labelledby", "headingOne" + i)
         div3.setAttribute("data-parent", "#accordionExample") //parent element ID
         div4.setAttribute("class", "card-body")
-        // div4.innerHTML = "lorem ipsum" // wiki API data
 
         h2.setAttribute("class", "mb-0")
         btn.setAttribute("class", "btn btn-link btnTheme collapsed ")
@@ -109,27 +116,6 @@ function getUnique(arr, comp) {
   
      return unique;
   }
-
-function filterPollutants(arr, pollutant){
-    var consArr = [];
-    consArr = arr.filter((e)=>{
-        return e.measure.parameter === pollutant
-    })
-    console.log(consArr)
-}
-
-function sortArray(arr, prop1, prop2){
-    if(arguments[2] !== undefined){
-        arr.sort((a,b)=>{
-            return a[prop1][prop2] > b[prop1][prop2] ? 1 : -1
-        })
-    }else{
-        arr.sort((a,b)=>{
-            return a[prop1] > b[prop1] ? 1 : -1
-        })
-    }
-    console.log(arr)
-}
 
 function selectCountryCode(){
     switch (inputElement.value.toLowerCase()){
@@ -185,10 +171,16 @@ selectionGroup.addEventListener("click",(e)=>{
         default:
             console.log("something went wrong on parameter")
      }
-
 })
+
+window.onload = () => {
+    if(localStorage.getItem(localStorageKey) !== null){
+        inputElement.value = localStorage.getItem(localStorageKey)
+    }
+}
 
 submitBtn.addEventListener("click", (e)=>{
         e.preventDefault()
+        storeInput()
         fetchData()
 })
